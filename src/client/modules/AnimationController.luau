@@ -120,4 +120,4 @@ function AnimationController:Start(): ()
 	localPlayer.CharacterAdded:Connect(onCharacterAdded)
 end
 
-return AnimationController
+return AnimationController :: typeof(AnimationController) & { read Start: nil, read Init: nil }

@@ -84,4 +84,4 @@ function CharacterController:Start()
 	localPlayer.CharacterAdded(onCharacterAdded)
 end
 
-return CharacterController
+return CharacterController :: typeof(CharacterController) & { read Start: nil }
