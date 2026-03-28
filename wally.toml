@@ -1,0 +1,35 @@
+[package]
+name = "dbergman/rekiro"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+
+Arch = "bohraz/arch@0.3.8"
+
+# Core
+ModuleLoader = "crusherfire/module-loader@1.0.1"
+
+# UI Libraries
+Lucide = "latte-soft/lucide-icons@0.1.3"
+UILabs = "pepeeltoro41/ui-labs@2.4.2"
+
+ReactSpring = "chriscerie/react-spring@2.0.0"
+ReactRoblox = "jsdotlua/react-roblox@17.2.1"
+React = "jsdotlua/react@17.2.1"
+
+# Networking
+GoodSignal = "l3g5nd/goodsignal@2.0.0"
+Packet = "rajden28/packet@1.7.3"
+
+# Utils
+Janitor = "howmanysmall/janitor@^1.17.0"
+Sequent = "sleitnick/sequent@0.1.0"
+Promise = "evaera/promise@4.0.0"
+Dash = "2b3/dash@1.1.0"
+
+[server-dependencies]
+
+# Data Managment
+ProfileStore = "lm-loleris/profilestore@1.0.3"

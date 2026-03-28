@@ -1,0 +1,42 @@
+{
+  "name": "rekiro",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "src/shared"
+      },
+      "Packages": {
+        "$path": "Packages"
+      },
+      "UI": {
+        "$path": "src/ui"
+      },
+      "ModulesClient": {
+        "$path": "src/client/modules",
+        "$className": "Configuration"
+      }
+    },
+    "ServerStorage": {
+      "ServerModules": {
+        "$path": "src/server/modules",
+        "$className": "Configuration"
+      },
+      "ServerPackages": {
+        "$path": "ServerPackages"
+      }
+    },
+    "ServerScriptService": {
+      "ServerRuntime": {
+        "$path": "src/server/start.server.luau"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "ClientRuntime": {
+          "$path": "src/client/start.client.luau"
+        }
+      }
+    }
+  }
+}
