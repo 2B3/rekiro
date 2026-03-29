@@ -12,13 +12,17 @@
       "UI": {
         "$path": "src/ui"
       },
+      "Inputs": {
+        "$className": "Folder",
+        "$path": "src/inputs"
+      },
       "ModulesClient": {
         "$path": "src/client/modules",
         "$className": "Configuration"
       }
     },
     "ServerStorage": {
-      "ServerModules": {
+      "ModulesServer": {
         "$path": "src/server/modules",
         "$className": "Configuration"
       },

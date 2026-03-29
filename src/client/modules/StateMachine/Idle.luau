@@ -1,3 +1,0 @@
-local idle = {}
-
-return idle

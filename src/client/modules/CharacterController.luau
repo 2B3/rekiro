@@ -68,7 +68,9 @@ end
    @return Boolean --> Return true if the player is grounded.
 ]=]
 function CharacterController.IsGrounded(self: typeof(CharacterController)): boolean
-	return if self.Humanoid then self.Humanoid.FloorMaterial ~= Enum.Material.Air else false
+	return if self.Humanoid
+		then self.Humanoid.FloorMaterial ~= Enum.Material.Air and self.Humanoid.FloorMaterial ~= Enum.Material.Water
+		else false
 end
 
 --[=[
@@ -81,7 +83,7 @@ end
 
 --- Main ---
 function CharacterController:Start()
-	localPlayer.CharacterAdded(onCharacterAdded)
+	localPlayer.CharacterAdded:Connect(onCharacterAdded)
 end
 
 return CharacterController
