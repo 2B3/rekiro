@@ -1,8 +1,11 @@
 --- Services ---
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+
+--- Player ---
+local localPlayer = Players.LocalPlayer
 
 --- Folders ---
-local inputs = ReplicatedStorage:WaitForChild("Inputs")
+local inputs = localPlayer.PlayerScripts:WaitForChild("Inputs")
 
 --- Variables ---
 local InputController = {}
