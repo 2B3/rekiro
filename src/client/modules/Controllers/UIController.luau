@@ -7,8 +7,8 @@ local packages = ReplicatedStorage.Packages
 
 --- Dependencies ---
 local React = require(packages.React)
-local ReactRoblox = require(packages.ReactRoblox)
 local App = require(ReplicatedStorage.UI.App)
+local ReactRoblox = require(packages.ReactRoblox)
 
 --- Player ---
 local localPlayer = Players.LocalPlayer

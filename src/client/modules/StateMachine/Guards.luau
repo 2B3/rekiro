@@ -1,9 +1,15 @@
 --- Services ---
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
+--- Folders ---
+local clientModules = ReplicatedStorage.ModulesClient
+local shared = ReplicatedStorage.Shared
+
+local controllers = clientModules.Controllers
+
 --- Requires ---
-local callWithSelf = require(ReplicatedStorage.Shared.Utils.callWithSelf)
-local CharacterController = require(ReplicatedStorage.ModulesClient.CharacterController)
+local callWithSelf = require(shared.Utils.callWithSelf)
+local CharacterController = require(controllers.CharacterController)
 
 --- Definition ---
 local guards = {

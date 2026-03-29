@@ -2,11 +2,12 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- Folders ---
 local clientModules = ReplicatedStorage:WaitForChild("ModulesClient")
+local controllers = clientModules:WaitForChild("Controllers")
 
 --- Requires ---
 local StateMachine = require(clientModules.StateMachine)
-local CharacterController = require(clientModules.CharacterController)
-local InputController = require(clientModules.InputController)
+local CharacterController = require(controllers.CharacterController)
+local InputController = require(controllers.InputController)
 
 --- Variables ---
 local MovementController = {}

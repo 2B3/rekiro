@@ -2,10 +2,11 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- Folders ---
-local states = script:WaitForChild("States")
+local packages = ReplicatedStorage.Packages
+local states = script.States
 
 --- Requires ---
-local Arch = require(ReplicatedStorage.Packages.Arch)
+local Arch = require(packages.Arch)
 
 local Guards = require(script.Guards)
 
