@@ -12,10 +12,6 @@
       "UI": {
         "$path": "src/ui"
       },
-      "Inputs": {
-        "$className": "Folder",
-        "$path": "src/inputs"
-      },
       "ModulesClient": {
         "$path": "src/client/modules",
         "$className": "Configuration"
@@ -39,6 +35,10 @@
       "StarterPlayerScripts": {
         "ClientRuntime": {
           "$path": "src/client/start.client.luau"
+        },
+        "Inputs": {
+          "$className": "Folder",
+          "$path": "src/inputs"
         }
       }
     }
