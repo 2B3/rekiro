@@ -3,11 +3,12 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 
 --- Folders ---
-local modulesClient = ReplicatedStorage.ModulesClient
+local clientModules = ReplicatedStorage.ModulesClient
+local controllers = clientModules.Controllers
 
 --- Requires ---
-local CharacterController = require(modulesClient.CharacterController)
-local AnimationController = require(modulesClient.AnimationController)
+local CharacterController = require(controllers.CharacterController)
+local AnimationController = require(controllers.AnimationController)
 
 --- Variables ---
 local AXES_FORCE = Vector3.zAxis * 4000

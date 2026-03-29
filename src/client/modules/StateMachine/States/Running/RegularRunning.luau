@@ -2,11 +2,12 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- Folders ---
-local modulesClient = ReplicatedStorage.ModulesClient
+local clientModules = ReplicatedStorage.ModulesClient
+local controllers = clientModules.Controllers
 
 --- Requires ---
-local CharacterController = require(modulesClient.CharacterController)
-local AnimationController = require(modulesClient.AnimationController)
+local CharacterController = require(controllers.CharacterController)
+local AnimationController = require(controllers.AnimationController)
 
 --- Definition ---
 local regularRunning = {

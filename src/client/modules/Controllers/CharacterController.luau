@@ -5,7 +5,8 @@ local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
 local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 
-local Control = require(localPlayer.PlayerScripts:WaitForChild("PlayerModule").ControlModule :: ModuleScript)
+local Control: { GetMoveVector: () -> Vector3? } =
+	require(localPlayer.PlayerScripts:WaitForChild("PlayerModule").ControlModule :: ModuleScript)
 
 local CharacterController = {}
 
@@ -86,4 +87,4 @@ function CharacterController:Start()
 	localPlayer.CharacterAdded:Connect(onCharacterAdded)
 end
 
-return CharacterController :: typeof(CharacterController) & { read Start: nil }
+return CharacterController
