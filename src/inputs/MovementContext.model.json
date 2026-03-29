@@ -1,0 +1,18 @@
+{
+   "className": "InputContext",
+   "children": [
+      {
+         "name": "RunAction",
+         "className": "InputAction",
+         "children": [
+            {
+               "name": "KeyboardBinding",
+               "className": "InputBinding",
+               "properties": {
+                  "KeyCode": "LeftShift"
+               }
+            }
+         ]
+      }
+   ]
+}

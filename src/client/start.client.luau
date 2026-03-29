@@ -10,4 +10,4 @@ ModuleLoader.ChangeSettings({
 	VERBOSE_LOADING = true,
 })
 
-ModuleLoader.Start(ReplicatedStorage:WaitForChild("ClientModules"))
+ModuleLoader.Start(ReplicatedStorage:WaitForChild("ModulesClient"))
