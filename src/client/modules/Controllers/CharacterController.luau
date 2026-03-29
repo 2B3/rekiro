@@ -30,6 +30,7 @@ end
 ]=]
 function CharacterController:SetWalkSpeed(walkSpeed: number)
 	if not self.Humanoid then
+		warn("[CharacterController]: Humaniod not found.")
 		return
 	end
 
@@ -39,9 +40,10 @@ end
 --[=[
 	Set the humanoid jump height speed in studs.
 	@param number --> jump height in studs.
-]=]
+	]=]
 function CharacterController:SetJumpHeight(jumpHeight: number)
 	if not self.Humanoid then
+		warn("[CharacterController]: Humaniod not found.")
 		return
 	end
 
@@ -84,6 +86,7 @@ end
 
 --- Main ---
 function CharacterController:Start()
+	onCharacterAdded(character)
 	localPlayer.CharacterAdded:Connect(onCharacterAdded)
 end
 

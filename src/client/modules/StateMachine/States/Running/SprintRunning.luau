@@ -22,7 +22,7 @@ local sprintRunning = {
 	janitor = true,
 
 	event = {
-		land = { { target = "regularRunning", guards = { "isMoving" } }, { target = "idle" } },
+		stopSprint = { { target = "regularRunning", guards = { "isMoving" } }, { target = "idle" } },
 	},
 
 	OnEntry = function(context)
@@ -64,7 +64,7 @@ local sprintRunning = {
 
 		--// Await and transite to the regular state //--
 		task.wait(0.65)
-		context.Send("land")
+		context.Send("stopSprint")
 	end,
 }
 

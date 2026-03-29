@@ -14,6 +14,11 @@ local MovementController = {}
 
 MovementController.RunningHeldDown = false
 
+--- Private Methods ---
+local function onMoveDirectionChanged()
+	MovementController:Update()
+end
+
 --- Public Methods ---
 
 function MovementController.Update(self: typeof(MovementController))
@@ -37,6 +42,8 @@ function MovementController.Start(self: typeof(MovementController))
 		self.RunningHeldDown = false
 		self:Update()
 	end)
+
+	CharacterController.Humanoid:GetPropertyChangedSignal("MoveDirection"):Connect(onMoveDirectionChanged)
 end
 
 return MovementController

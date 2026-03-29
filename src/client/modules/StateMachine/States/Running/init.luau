@@ -29,6 +29,7 @@ local running = {
 
 	OnEntry = function()
 		CharacterController:SetJumpHeight(0)
+		CharacterController:SetWalkSpeed(22)
 	end,
 }
 
