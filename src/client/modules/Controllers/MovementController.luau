@@ -19,6 +19,15 @@ local function onMoveDirectionChanged()
 	MovementController:Update()
 end
 
+local function onCharacterReady()
+	CharacterController.Humanoid:GetPropertyChangedSignal("MoveDirection"):Connect(onMoveDirectionChanged)
+end
+
+local function toggleRun(value: boolean?)
+	MovementController.RunningHeldDown = value or not MovementController.RunningHeldDown
+	MovementController:Update()
+end
+
 --- Public Methods ---
 
 function MovementController.Update(self: typeof(MovementController))
@@ -32,18 +41,16 @@ function MovementController.Update(self: typeof(MovementController))
 end
 
 --- Main ---
-function MovementController.Start(self: typeof(MovementController))
+function MovementController.Start()
 	InputController:GetPressedSignal("MovementContext", "RunAction"):Connect(function()
-		self.RunningHeldDown = true
-		self:Update()
+		toggleRun(true)
 	end)
 
 	InputController:GetReleasedSignal("MovementContext", "RunAction"):Connect(function()
-		self.RunningHeldDown = false
-		self:Update()
+		toggleRun(false)
 	end)
 
-	CharacterController.Humanoid:GetPropertyChangedSignal("MoveDirection"):Connect(onMoveDirectionChanged)
+	CharacterController.CharacterReady:Connect(onCharacterReady)
 end
 
 return MovementController

@@ -1,17 +1,22 @@
 --- Services ---
 local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- Player ---
 local localPlayer = Players.LocalPlayer
-local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local playerScripts = localPlayer.PlayerScripts
 
-local Control: { GetMoveVector: () -> Vector3? } =
-	require(localPlayer.PlayerScripts:WaitForChild("PlayerModule").ControlModule :: ModuleScript)
+--- Requires ---
+local SignalPlus = require(ReplicatedStorage.Packages.SignalPlus)
+local Control = require(playerScripts.PlayerModule.ControlModule) :: { GetMoveVector: () -> Vector3? }
 
+--- Variables ---
 local CharacterController = {}
+CharacterController.CharacterReady = SignalPlus()
 
-local function onCharacterAdded(newCharacter: Model)
-	character = newCharacter
+--- Private Methods ---
+local function updateCharacterReferences(character: Model)
+	CharacterController.Character = character
 
 	CharacterController.HumanoidRootPart = character and character:WaitForChild("HumanoidRootPart") :: BasePart
 	CharacterController.Humanoid = character and character:WaitForChild("Humanoid") :: Humanoid
@@ -22,7 +27,26 @@ local function onCharacterAdded(newCharacter: Model)
 		and CharacterController.Humanoid:WaitForChild("Animator") :: Animator
 end
 
+local function onCharacterAdded(character: Model)
+	updateCharacterReferences(character)
+	CharacterController.CharacterReady:Fire()
+end
+
 --- Public Methods ---
+
+--[=[
+	Check if character references exist.
+	@return boolean --> Return true if character references exist.
+]=]
+function CharacterController:CharacterExist(): boolean
+	return if self.Character
+			and self.HumanoidRootPart
+			and self.RootAttachment
+			and self.Humanoid
+			and self.Animator
+		then true
+		else false
+end
 
 --[=[
 	Set the humanoid maximum movement speed in studs per second.
@@ -86,7 +110,7 @@ end
 
 --- Main ---
 function CharacterController:Start()
-	onCharacterAdded(character)
+	onCharacterAdded(localPlayer.Character or localPlayer.CharacterAdded:Wait())
 	localPlayer.CharacterAdded:Connect(onCharacterAdded)
 end
 
