@@ -6,6 +6,7 @@ local clientModules = ReplicatedStorage.ModulesClient
 local controllers = clientModules.Controllers
 
 --- Requires ---
+local CharacterController = require(ReplicatedStorage.ModulesClient.Controllers.CharacterController)
 local AnimationController = require(controllers.AnimationController)
 
 --- Definition ---
@@ -19,6 +20,7 @@ local idle = {
 
 	OnEntry = function()
 		AnimationController:PlayAnimation("Movement", "Idle")
+		CharacterController:SetJumpHeight(7.2)
 	end,
 
 	OnExit = function()

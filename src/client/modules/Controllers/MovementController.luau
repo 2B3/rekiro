@@ -15,12 +15,13 @@ local MovementController = {}
 MovementController.RunningHeldDown = false
 
 --- Private Methods ---
-local function onMoveDirectionChanged()
-	MovementController:Update()
-end
-
 local function onCharacterReady()
-	CharacterController.Humanoid:GetPropertyChangedSignal("MoveDirection"):Connect(onMoveDirectionChanged)
+	local function update()
+		MovementController:Update()
+	end
+
+	CharacterController.Humanoid:GetPropertyChangedSignal("MoveDirection"):Connect(update)
+	CharacterController.Humanoid.StateChanged:Connect(update)
 end
 
 local function toggleRun(value: boolean?)
@@ -50,6 +51,9 @@ function MovementController.Start()
 		toggleRun(false)
 	end)
 
+	if CharacterController:IsReady() then
+		onCharacterReady()
+	end
 	CharacterController.CharacterReady:Connect(onCharacterReady)
 end
 

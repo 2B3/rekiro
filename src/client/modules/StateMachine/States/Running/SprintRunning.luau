@@ -21,13 +21,14 @@ local sprintRunning = {
 
 	janitor = true,
 
-	event = {
+	events = {
 		stopSprint = { { target = "regularRunning", guards = { "isMoving" } }, { target = "idle" } },
 	},
 
 	OnEntry = function(context)
 		--// If character does not ready, abort //--
 		if not CharacterController:IsReady() then
+			warn("SPRINT ABORTED, CHARACTER NOT READY.")
 			context.Send("stopSprint")
 		end
 
@@ -68,7 +69,7 @@ local sprintRunning = {
 		AnimationController:PlayAnimation("Movement", "SprintRunning", 0.1, "running_sprint", dash)
 
 		--// Await and transite to the regular state //--
-		task.wait(0.65)
+		task.wait(0.45)
 		context.Send("stopSprint")
 	end,
 }

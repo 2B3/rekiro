@@ -20,6 +20,7 @@ local walk = {
 
 	OnEntry = function()
 		AnimationController:PlayAnimation("Movement", "Walk")
+		CharacterController:SetJumpHeight(7.2)
 		CharacterController:SetWalkSpeed(8)
 	end,
 

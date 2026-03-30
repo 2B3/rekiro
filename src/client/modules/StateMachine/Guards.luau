@@ -16,7 +16,7 @@ local guards = {
 	---// Character Guards //--
 	isGrounded = callWithSelf(CharacterController, CharacterController.IsGrounded),
 
-	isMoving = callWithSelf(CharacterController, CharacterController.isMoving),
+	isMoving = callWithSelf(CharacterController, CharacterController.IsMoving),
 
 	isOnAir = callWithSelf(CharacterController, CharacterController.IsOnAir),
 
