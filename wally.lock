@@ -3,6 +3,11 @@
 registry = "test"
 
 [[package]]
+name = "1foreverhd/topbarplus"
+version = "3.4.0"
+dependencies = []
+
+[[package]]
 name = "2b3/dash"
 version = "1.1.0"
 dependencies = []
@@ -30,7 +35,7 @@ dependencies = []
 [[package]]
 name = "dbergman/rekiro"
 version = "0.1.0"
-dependencies = [["Arch", "bohraz/arch@0.3.8"], ["Dash", "2b3/dash@1.1.0"], ["GoodSignal", "l3g5nd/goodsignal@2.0.0"], ["Janitor", "howmanysmall/janitor@1.18.3"], ["Lucide", "latte-soft/lucide-icons@0.1.3"], ["ModuleLoader", "crusherfire/module-loader@1.0.1"], ["Packet", "rajden28/packet@1.7.3"], ["Promise", "evaera/promise@4.0.0"], ["React", "jsdotlua/react@17.2.1"], ["ReactRoblox", "jsdotlua/react-roblox@17.2.1"], ["ReactSpring", "chriscerie/react-spring@2.0.0"], ["Sequent", "sleitnick/sequent@0.1.0"], ["UILabs", "pepeeltoro41/ui-labs@2.4.2"], ["ProfileStore", "lm-loleris/profilestore@1.0.3"]]
+dependencies = [["Arch", "bohraz/arch@0.3.8"], ["Dash", "2b3/dash@1.1.0"], ["GoodSignal", "l3g5nd/goodsignal@2.0.0"], ["Janitor", "howmanysmall/janitor@1.18.3"], ["Lucide", "latte-soft/lucide-icons@0.1.3"], ["ModuleLoader", "crusherfire/module-loader@1.0.1"], ["Packet", "rajden28/packet@1.7.3"], ["Promise", "evaera/promise@4.0.0"], ["React", "jsdotlua/react@17.2.1"], ["ReactRoblox", "jsdotlua/react-roblox@17.2.1"], ["ReactSpring", "chriscerie/react-spring@2.0.0"], ["Sequent", "sleitnick/sequent@0.1.0"], ["TopbarPlus", "1foreverhd/topbarplus@3.4.0"], ["UILabs", "pepeeltoro41/ui-labs@2.4.2"], ["ProfileStore", "lm-loleris/profilestore@1.0.3"]]
 
 [[package]]
 name = "evaera/promise"

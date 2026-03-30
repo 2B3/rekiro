@@ -19,6 +19,8 @@ ReactSpring = "chriscerie/react-spring@2.0.0"
 ReactRoblox = "jsdotlua/react-roblox@17.2.1"
 React = "jsdotlua/react@17.2.1"
 
+TopbarPlus = "1foreverhd/topbarplus@3.4.0"
+
 # Networking
 GoodSignal = "l3g5nd/goodsignal@2.0.0"
 Packet = "rajden28/packet@1.7.3"
