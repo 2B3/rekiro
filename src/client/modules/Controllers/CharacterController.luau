@@ -38,7 +38,7 @@ end
 	Check if character references exist.
 	@return boolean --> Return true if character references exist.
 ]=]
-function CharacterController:CharacterExist(): boolean
+function CharacterController:IsReady(): boolean
 	return if self.Character
 			and self.HumanoidRootPart
 			and self.RootAttachment

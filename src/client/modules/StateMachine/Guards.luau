@@ -19,6 +19,8 @@ local guards = {
 	isMoving = callWithSelf(CharacterController, CharacterController.isMoving),
 
 	isOnAir = callWithSelf(CharacterController, CharacterController.IsOnAir),
+
+	isReady = callWithSelf(CharacterController, CharacterController.IsReady),
 }
 
 return guards

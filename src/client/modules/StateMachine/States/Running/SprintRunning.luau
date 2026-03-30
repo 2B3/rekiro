@@ -22,7 +22,7 @@ local sprintRunning = {
 	janitor = true,
 
 	event = {
-		stopSprint = { { target = "regularRunning", guards = { "isMoving" } }, { target = "idle" } },
+		stopSprint = { { target = "regularRunning", guards = { "isReady", "isMoving" } }, { target = "idle" } },
 	},
 
 	OnEntry = function(context)

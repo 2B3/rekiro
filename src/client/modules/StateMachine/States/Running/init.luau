@@ -16,7 +16,7 @@ local running = {
 	initial = "sprintRunning",
 
 	events = {
-		startWalk = { target = "walk", guards = { "isGrounded" } },
+		startWalk = { target = "walk", guards = { "isReady", "isGrounded" } },
 
 		stopRun = "idle",
 	},

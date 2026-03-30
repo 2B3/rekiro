@@ -12,9 +12,9 @@ local AnimationController = require(controllers.AnimationController)
 local idle = {
 
 	events = {
-		startRun = { target = "running", guards = { "isGrounded" } },
+		startRun = { target = "running", guards = { "isReady", "isGrounded" } },
 
-		startWalk = "walk",
+		startWalk = { target = "walk", guards = { "isReady" } },
 	},
 
 	OnEntry = function()

@@ -13,7 +13,7 @@ local CharacterController = require(controllers.CharacterController)
 local walk = {
 
 	events = {
-		startRun = { target = "running", guards = { "isGrounded" } },
+		startRun = { target = "running", guards = { "isReady", "isGrounded" } },
 
 		stopWalk = "idle",
 	},
