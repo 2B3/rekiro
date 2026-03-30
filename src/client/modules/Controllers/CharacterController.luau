@@ -36,7 +36,7 @@ end
 
 --[=[
 	Check if character references exist.
-	@return boolean --> Return true if character references exist.
+	@return boolean --> return true if character references exist.
 ]=]
 function CharacterController:IsReady(): boolean
 	return if self.Character
@@ -50,7 +50,7 @@ end
 
 --[=[
 	Set the humanoid maximum movement speed in studs per second.
-	@param number --> maximun movement speed in studs/s
+	@param walkSpeed number --> maximun movement speed in studs/s
 ]=]
 function CharacterController:SetWalkSpeed(walkSpeed: number)
 	if not self.Humanoid then
@@ -63,7 +63,7 @@ end
 
 --[=[
 	Set the humanoid jump height speed in studs.
-	@param number --> jump height in studs.
+	@param jumpHeight number --> jump height in studs.
 	]=]
 function CharacterController:SetJumpHeight(jumpHeight: number)
 	if not self.Humanoid then
@@ -75,8 +75,8 @@ function CharacterController:SetJumpHeight(jumpHeight: number)
 end
 
 --[=[
-	Return the move vector provided by the Control PlayerModule.
-	@return Vector3 --> Normalizated MoveVector.
+	Returns the move vector provided by the Control PlayerModule.
+	@return Vector3 --> normalizated move vector.
 	]=]
 function CharacterController:GetMoveVector(): Vector3
 	return Control:GetMoveVector()
@@ -84,7 +84,7 @@ end
 
 --[=[
 	Check if the player is moving.
-	@return Boolean --> Return true if the player is moving.
+	@return boolean --> return true if the player is moving.
 ]=]
 function CharacterController.IsMoving(self: typeof(CharacterController)): boolean
 	return if self.Humanoid then self.Humanoid.MoveDirection.magnitude >= 0.1 else false
@@ -92,7 +92,7 @@ end
 
 --[=[
    Check if the player is grounded.
-   @return Boolean --> Return true if the player is grounded.
+   @return boolean --> return true if the player is on the ground.
 ]=]
 function CharacterController.IsGrounded(self: typeof(CharacterController)): boolean
 	return if self.Humanoid
@@ -102,7 +102,7 @@ end
 
 --[=[
    Check if the player is on air.
-   @return Boolean --> Return true if the player is on the air.
+   @return boolean --> returns true if the player is airborne.
 ]=]
 function CharacterController.IsOnAir(self: typeof(CharacterController)): boolean
 	return if self.Humanoid then self.Humanoid.FloorMaterial == Enum.Material.Air else false
