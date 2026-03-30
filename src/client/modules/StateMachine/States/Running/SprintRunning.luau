@@ -22,10 +22,15 @@ local sprintRunning = {
 	janitor = true,
 
 	event = {
-		stopSprint = { { target = "regularRunning", guards = { "isReady", "isMoving" } }, { target = "idle" } },
+		stopSprint = { { target = "regularRunning", guards = { "isMoving" } }, { target = "idle" } },
 	},
 
 	OnEntry = function(context)
+		--// If character does not ready, abort //--
+		if not CharacterController:IsReady() then
+			context.Send("stopSprint")
+		end
+
 		---// Instancializate linearVelocity //--
 		local linearVelocity = Instance.new("LinearVelocity")
 

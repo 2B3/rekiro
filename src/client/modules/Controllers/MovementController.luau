@@ -5,7 +5,7 @@ local clientModules = ReplicatedStorage:WaitForChild("ModulesClient")
 local controllers = clientModules:WaitForChild("Controllers")
 
 --- Requires ---
-local StateMachine = require(clientModules.StateMachine)
+local StateMachine = require(clientModules:WaitForChild("StateMachine"))
 local CharacterController = require(controllers.CharacterController)
 local InputController = require(controllers.InputController)
 
