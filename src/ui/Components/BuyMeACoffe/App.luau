@@ -35,31 +35,7 @@ local function App(props: AppProps)
 	local counter, setCounter = useState(cups[1])
 	local title, setTitle = useState("")
 
-	local visible, setVisible = useState(false)
-
 	---// Effects //--
-
-	-- Topbar Visible Effect
-	useEffect(function()
-		if not IS_RUNNING then
-			return
-		end
-
-		local icon = TopbarPlus.new()
-			:align("Right")
-			:setCaption("Support the project with BuyMeACoffe.")
-			:bindEvent("deselected", function()
-				setVisible(false)
-			end)
-			:bindEvent("selected", function()
-				setVisible(true)
-			end)
-			:setImage("rbxassetid://110999845498673")
-
-		return function()
-			icon:destroy()
-		end
-	end, {})
 
 	-- Dots Effect
 	useEffect(function()
@@ -118,7 +94,7 @@ local function App(props: AppProps)
 
 	--// Definition //--
 	return createElement(Body, {
-		visible = if IS_RUNNING then visible else props.visible, --> On running toggled with topbarplus else using element props.
+		visible = props.visible, --> On running toggled with topbarplus else using element props.
 	}, {
 
 		Title = createElement("TextLabel", {
@@ -179,4 +155,29 @@ local function App(props: AppProps)
 	})
 end
 
-return App
+return function(props: AppProps)
+	local visible, setVisible = useState(props.visible or false)
+
+	useEffect(function()
+		if not IS_RUNNING then
+			return
+		end
+
+		local icon = TopbarPlus.new()
+			:align("Right")
+			:setCaption("Support the project with BuyMeACoffe.")
+			:bindEvent("deselected", function()
+				setVisible(false)
+			end)
+			:bindEvent("selected", function()
+				setVisible(true)
+			end)
+			:setImage("rbxassetid://110999845498673")
+
+		return function()
+			icon:destroy()
+		end
+	end, {})
+
+	return if visible then createElement(App, { visible = visible }) else nil
+end

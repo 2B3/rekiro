@@ -19,14 +19,25 @@ export type BodyProps = {
 --- Elements ---
 local function Body(props: BodyProps)
 	local styles = useSpring({
-		transparency = if props.visible then 0 else 1,
-		position = if props.visible then UDim2.fromScale(0.5, 0.5) else UDim2.fromScale(0.5, 1),
-		scale = if props.visible then 1 else 0.8,
+		from = {
+			position = UDim2.fromScale(1, 0),
+			anchorPoint = Vector2.new(1, 0),
+			transparency = 1,
+			scale = 0.5,
+		},
+
+		to = {
+			position = UDim2.fromScale(0.5, 0.5),
+			anchorPoint = Vector2.one * 0.5,
+			transparency = 0,
+			scale = 1,
+		},
 	})
 
 	return createElement("CanvasGroup", {
+		AnchorPoint = styles.anchorPoint,
 		Position = styles.position,
-		AnchorPoint = Vector2.one * 0.5,
+
 		Size = UDim2.fromOffset(386, 0),
 
 		AutomaticSize = Enum.AutomaticSize.Y,

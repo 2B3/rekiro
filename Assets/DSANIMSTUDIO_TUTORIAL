@@ -1,0 +1,58 @@
+# Como obtener las animaciones
+## Como descargarlo
+Se van al repositorio oficial de DS Anim Studio y pueden ver las verciones en `tags` de github, seleccionan la v4.9.9 HOTFIX y proceden a ver las animaciones.
+[Pueden tambien usar este link directo](https://github.com/Meowmaritus/DSAnimStudio/releases/download/ver4.9.9/DSAS_4.9.9_HOTFIX_b.zip)
+
+## Como sacar las animaciones de sekiro
+Se van al repositorio oficial de UXM-Selective-Unpack, van a `tags` y eligen la **ultima version estable**, descargan el zip o 7z dependiendo de su file archiver, descomprimen y habren la carpeta de UXM, una vez ahi abren el archivo `UXM.exe`.
+
+- **[WARNING]: No tocar patch!!!**
+- Colocan en el Executable Path el sekiro.exe, suponiendo que lo tengan legal estaria en `<disco-donde-tengas-sekiro>:\Steam-EXT\steamapps\common\Sekiro\sekiro.exe` y en el otro caso deberia estar en una carpeta random como en AppData el-amigos/sekiro o algo asi, en todo caso, pueden darle click derecho al acceso directo de su sekiro y darle a ubicacion del archivo.
+- Dan al boton de Unpack
+
+## Como importar las animaciones una vez ya obtenidas de uxm
+- Abren `DS Anim Studio`
+- Le dan al boton superior izquierdo que dice Open/Abrir
+- Abren la misma carpeta donde tenian su `sekiro.exe`
+- Abren la carpeta de `chr/`
+- Seleccionan el que dice `c0000.anibnd.dcx`
+- Tocan el boton de Apply/Aplicar
+- Tocan el boton de ok, siempre la primera opcion `/chr/c0000.chrbnd.dcx`
+
+# Como usar DS Anim Studio
+## Explorador
+>En el izquierdo de la pantalla hay un explorador, cada vez que seleccionas uno de los nodos(ejemplo: <TODO: MAKE LATER>) cambias el `Anim Viewer` que esta en la parte derecha de la pantalla.
+### siguen esta secuencia cuyo sigue esta estructura de subcarpetas:
+- a00: for traversal, world interactions, item use and taking damage
+- a10: for non-combat areas
+- a50: for blocking, deflecting and basic attacks
+- a70: shuriken
+- a71: firecrackers
+- a72: flame vent
+- a73: axe
+- a74: mist raven
+- a75: sabimaru
+- a76: umbrella
+- a77: fans
+- a78: spear
+- a79: whistle
+- a100: whirlwind slash
+- a101: nightjar slash
+- a102: ichimonji
+- a103: dragon flash
+- a104: ashina cross & one mind
+- a105: floating & spiral cloud passage
+- a106: mortal draw
+- a107: leaping kicks & high monk
+- a108: praying strikes
+- a109: shadowrush & shadowfall
+- a110: sakura dance
+- a200 and onward: deathblows and grabs (mikiri counter is a grab btw)
+
+## Anim Viewer
+> El `Anim Viewer` es la ventana derecha que aparece al iniciar `DS Anim Studio` junto a tu personaje, muestra diversa informacion como la posicion en frames y el tiempo transcurrido y el total.  
+- Con el **LMB** podras trasladarte atraves del espacio rotando  
+- Con el **RMB** podras trasladarte a la dirreccion del paneo del mouse  
+- Con la rueda del mouse podras acercarte y alejarte del punto de fuga(por defecto en el rootPart del personaje)  
+
+Eso seria todo, muchas gracias por participar en esta comunidad.
