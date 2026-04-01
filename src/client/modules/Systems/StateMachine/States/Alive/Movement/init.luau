@@ -6,6 +6,7 @@ local clientModules = ReplicatedStorage.ModulesClient
 local systems = clientModules.Systems
 
 --- Requires ---
+local Dashing = require(script.Dashing)
 local Types = require(systems.StateMachine.Types)
 
 local Running = require(script.Running)
@@ -19,8 +20,9 @@ local movement: Types.StateNode = {
 
 	states = {
 		idle = Idle,
-		running = Running,
 		walking = Walking,
+		running = Running,
+		dashing = Dashing,
 	},
 
 	events = {

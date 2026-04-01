@@ -1,4 +1,4 @@
-local ENABLED = false
+local ENABLED = true
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -36,7 +36,7 @@ local function renderNode(node)
 	Iris.End()
 end
 
-function module:Start()
+function module:start()
 	Iris = Iris.Init()
 
 	Iris:Connect(function()
