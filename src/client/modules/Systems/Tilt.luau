@@ -43,7 +43,7 @@ local function onStepped(dt: number)
 end
 
 --- Main ---
-function Tilt:Start()
+function Tilt:start()
 	localPlayer.CharacterAdded:Connect(onCharacterAdded)
 	Runtime.RenderStepped:Connect(onStepped)
 end
