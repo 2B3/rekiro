@@ -19,10 +19,11 @@ ReactSpring = "chriscerie/react-spring@2.0.0"
 ReactRoblox = "jsdotlua/react-roblox@17.2.1"
 React = "jsdotlua/react@17.2.1"
 
+Iris = "sirmallard/iris@2.5.1"
+
 TopbarPlus = "1foreverhd/topbarplus@3.4.0"
 
 # Networking
-SignalPlus = "2b3/signal-plus@0.1.1"
 Packet = "rajden28/packet@1.7.3"
 
 # Utils

@@ -27,7 +27,6 @@ end
 
 local function onCharacterAdded(newCharacter: Model)
 	for _, animation in animations:QueryDescendants("Animation") do
-		warn("[AnimationController]: Load animation", animation)
 		AnimationController:LoadAnimation(newCharacter, animation.Parent.Name, animation)
 	end
 end

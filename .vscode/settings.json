@@ -1,4 +1,4 @@
 {
   "luau-lsp.sourcemap.generatorCommand": "rojo sourcemap default.project.json -o sourcemap.json",
-  "luau-lsp.sourcemap.enabled": false
+  "luau-lsp.sourcemap.enabled": true
 }

@@ -7,12 +7,12 @@ local localPlayer = Players.LocalPlayer
 local playerScripts = localPlayer.PlayerScripts
 
 --- Requires ---
-local SignalPlus = require(ReplicatedStorage.Packages.SignalPlus)
 local Control = require(playerScripts.PlayerModule.ControlModule) :: { GetMoveVector: () -> Vector3? }
+local signal = require(ReplicatedStorage.Shared.Utils.signal)
 
 --- Variables ---
 local CharacterController = {}
-CharacterController.CharacterReady = SignalPlus()
+CharacterController.CharacterReady = signal()
 
 --- Private Methods ---
 local function updateCharacterReferences(character: Model)

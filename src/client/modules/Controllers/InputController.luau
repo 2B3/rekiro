@@ -1,5 +1,6 @@
 --- Services ---
 local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
 
 --- Player ---
 local localPlayer = Players.LocalPlayer
@@ -57,6 +58,17 @@ function InputController:GetReleasedSignal(contextName: string, actionName: stri
 	assert(inputAction, "InputAction not found.")
 
 	return inputAction.Released
+end
+
+--[=[
+	Returns whether the given key name is currently held down.
+
+	@param keyof<KeyCode> key --> target key.
+
+	@return boolean --> return true if is currently held down.
+]=]
+function InputController:IsKeyDown(key: keyof<typeof(Enum.KeyCode)>): boolean
+	return UserInputService:IsKeyDown(Enum.KeyCode[key])
 end
 
 return InputController
