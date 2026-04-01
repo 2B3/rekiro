@@ -12,7 +12,7 @@ local character: Model = localPlayer.Character or localPlayer.CharacterAdded:Wai
 
 --- Variables ---
 local AnimationController = {}
-AnimationController.Tracks = {} :: { [string]: { [string]: AnimationTrack } }
+AnimationController.tracks = {} :: { [string]: { [string]: AnimationTrack } }
 
 --- Private Methods ---
 local function getAnimatorFromCharacter(targetCharacter: Model): Animator
@@ -27,7 +27,7 @@ end
 
 local function onCharacterAdded(newCharacter: Model)
 	for _, animation in animations:QueryDescendants("Animation") do
-		AnimationController:LoadAnimation(newCharacter, animation.Parent.Name, animation)
+		AnimationController:loadAnimation(newCharacter, animation.Parent.Name, animation)
 	end
 end
 
@@ -40,7 +40,7 @@ end
    @param string type --> A simple organization method.
    @param Animation animation --> The `Animation` you want to load.
 ]=]
-function AnimationController.LoadAnimation(
+function AnimationController.loadAnimation(
 	self: typeof(AnimationController),
 	targetCharacter: Model,
 	type: string,
@@ -57,8 +57,8 @@ function AnimationController.LoadAnimation(
 
 	local track: AnimationTrack = animator:LoadAnimation(animation)
 
-	self.Tracks[type] = AnimationController.Tracks[type] or {}
-	self.Tracks[type][animation.Name] = track
+	self.tracks[type] = AnimationController.tracks[type] or {}
+	self.tracks[type][animation.Name] = track
 end
 
 --[=[
@@ -72,7 +72,7 @@ end
 
    @return AnimationTrack
 ]=]
-function AnimationController.PlayAnimation(
+function AnimationController.playAnimation(
 	self: typeof(AnimationController),
 	type: string,
 	animationName: string,
@@ -80,7 +80,7 @@ function AnimationController.PlayAnimation(
 	markerName: string?,
 	callback: ((value: string) -> ())?
 ): AnimationTrack
-	local track: AnimationTrack = self.Tracks[type] and self.Tracks[type][animationName]
+	local track: AnimationTrack = self.tracks[type] and self.tracks[type][animationName]
 	if not track then
 		return
 	end
@@ -104,8 +104,8 @@ end
    @param string type --> A simple organization method.
    @param string animationName --> The name of the `AnimationTrack` you want stop.
 ]=]
-function AnimationController.StopAnimation(self: typeof(AnimationController), type: string, animationName: string): ()
-	local track: AnimationTrack = self.Tracks[type] and self.Tracks[type][animationName]
+function AnimationController.stopAnimation(self: typeof(AnimationController), type: string, animationName: string): ()
+	local track: AnimationTrack = self.tracks[type] and self.tracks[type][animationName]
 	if not track then
 		return
 	end
@@ -114,7 +114,7 @@ function AnimationController.StopAnimation(self: typeof(AnimationController), ty
 end
 
 --- Main ---
-function AnimationController:Start(): ()
+function AnimationController:start(): ()
 	onCharacterAdded(character)
 	localPlayer.CharacterAdded:Connect(onCharacterAdded)
 end

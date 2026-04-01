@@ -3,21 +3,21 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- Folders ---
 local clientModules = ReplicatedStorage.ModulesClient
+local systems = clientModules.Systems
 
 --- Requires ---
-local Types = require(clientModules.StateMachine.Types)
+local Types = require(systems.StateMachine.Types)
 
 --- Definition ---
-local walking: Types.StateNode = {
+local idle: Types.StateNode = {
 
 	OnEntry = function(ctx)
-		ctx.animation:PlayAnimation("Movement", "run_cycle")
-		ctx.character:SetWalkSpeed(10)
+		ctx.components.animation:playAnimation("movement", "idle")
 	end,
 
 	OnExit = function(ctx)
-		ctx.animation:StopAnimation("Movement", "walk_cycle")
+		ctx.components.animation:stopAnimation("movement", "idle")
 	end,
 }
 
-return walking
+return idle

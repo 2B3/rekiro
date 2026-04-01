@@ -11,25 +11,25 @@ local Control = require(playerScripts.PlayerModule.ControlModule) :: { GetMoveVe
 local signal = require(ReplicatedStorage.Shared.Utils.signal)
 
 --- Variables ---
-local CharacterController = {}
-CharacterController.CharacterReady = signal()
+local characterController = {}
+characterController.characterReady = signal()
 
 --- Private Methods ---
 local function updateCharacterReferences(character: Model)
-	CharacterController.Character = character
+	characterController.Character = character
 
-	CharacterController.HumanoidRootPart = character and character:WaitForChild("HumanoidRootPart") :: BasePart
-	CharacterController.Humanoid = character and character:WaitForChild("Humanoid") :: Humanoid
+	characterController.HumanoidRootPart = character and character:WaitForChild("HumanoidRootPart") :: BasePart
+	characterController.Humanoid = character and character:WaitForChild("Humanoid") :: Humanoid
 
-	CharacterController.RootAttachment = CharacterController.HumanoidRootPart
-		and CharacterController.HumanoidRootPart:WaitForChild("RootAttachment") :: Attachment
-	CharacterController.Animator = CharacterController.Humanoid
-		and CharacterController.Humanoid:WaitForChild("Animator") :: Animator
+	characterController.RootAttachment = characterController.HumanoidRootPart
+		and characterController.HumanoidRootPart:WaitForChild("RootAttachment") :: Attachment
+	characterController.Animator = characterController.Humanoid
+		and characterController.Humanoid:WaitForChild("Animator") :: Animator
 end
 
 local function onCharacterAdded(character: Model)
 	updateCharacterReferences(character)
-	CharacterController.CharacterReady:Fire()
+	characterController.characterReady:Fire()
 end
 
 --- Public Methods ---
@@ -38,7 +38,7 @@ end
 	Check if character references exist.
 	@return boolean --> return true if character references exist.
 ]=]
-function CharacterController:IsReady(): boolean
+function characterController:isReady(): boolean
 	return if self.Character
 			and self.HumanoidRootPart
 			and self.RootAttachment
@@ -52,9 +52,9 @@ end
 	Set the humanoid maximum movement speed in studs per second.
 	@param walkSpeed number --> maximun movement speed in studs/s
 ]=]
-function CharacterController:SetWalkSpeed(walkSpeed: number)
+function characterController:setWalkSpeed(walkSpeed: number)
 	if not self.Humanoid then
-		warn("[CharacterController]: Humaniod not found.")
+		warn("[characterController]: Humaniod not found.")
 		return
 	end
 
@@ -65,9 +65,9 @@ end
 	Set the humanoid jump height speed in studs.
 	@param jumpHeight number --> jump height in studs.
 	]=]
-function CharacterController:SetJumpHeight(jumpHeight: number)
+function characterController:setJumpHeight(jumpHeight: number)
 	if not self.Humanoid then
-		warn("[CharacterController]: Humaniod not found.")
+		warn("[characterController]: Humaniod not found.")
 		return
 	end
 
@@ -78,7 +78,7 @@ end
 	Returns the move vector provided by the Control PlayerModule.
 	@return Vector3 --> normalizated move vector.
 	]=]
-function CharacterController:GetMoveVector(): Vector3
+function characterController:getMoveVector(): Vector3
 	return Control:GetMoveVector()
 end
 
@@ -86,7 +86,7 @@ end
 	Check if the player is moving.
 	@return boolean --> return true if the player is moving.
 ]=]
-function CharacterController.IsMoving(self: typeof(CharacterController)): boolean
+function characterController.isMoving(self: typeof(characterController)): boolean
 	return if self.Humanoid then self.Humanoid.MoveDirection.magnitude >= 0.1 else false
 end
 
@@ -94,7 +94,7 @@ end
    Check if the player is grounded.
    @return boolean --> return true if the player is on the ground.
 ]=]
-function CharacterController.IsGrounded(self: typeof(CharacterController)): boolean
+function characterController.isGrounded(self: typeof(characterController)): boolean
 	return if self.Humanoid
 		then self.Humanoid.FloorMaterial ~= Enum.Material.Air and self.Humanoid.FloorMaterial ~= Enum.Material.Water
 		else false
@@ -104,14 +104,14 @@ end
    Check if the player is on air.
    @return boolean --> returns true if the player is airborne.
 ]=]
-function CharacterController.IsOnAir(self: typeof(CharacterController)): boolean
+function characterController.isOnAir(self: typeof(characterController)): boolean
 	return if self.Humanoid then self.Humanoid.FloorMaterial == Enum.Material.Air else false
 end
 
 --- Main ---
-function CharacterController:Start()
+function characterController:start()
 	onCharacterAdded(localPlayer.Character or localPlayer.CharacterAdded:Wait())
 	localPlayer.CharacterAdded:Connect(onCharacterAdded)
 end
 
-return CharacterController
+return characterController

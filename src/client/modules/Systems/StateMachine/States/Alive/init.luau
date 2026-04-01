@@ -5,9 +5,10 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- Folders ---
 local clientModules = ReplicatedStorage.ModulesClient
+local systems = clientModules.Systems
 
 --- Requires ---
-local Types = require(clientModules.StateMachine.Types)
+local Types = require(systems.StateMachine.Types)
 local Movement = require(script.Movement)
 
 --- Definition ---

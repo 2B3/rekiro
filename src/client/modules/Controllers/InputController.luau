@@ -1,6 +1,6 @@
 --- Services ---
-local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
+local Players = game:GetService("Players")
 
 --- Player ---
 local localPlayer = Players.LocalPlayer
@@ -9,7 +9,7 @@ local localPlayer = Players.LocalPlayer
 local inputs = localPlayer.PlayerScripts:WaitForChild("Inputs")
 
 --- Variables ---
-local InputController = {}
+local inputController = {}
 
 --- Private Methods ---
 local function getAction(contextName: string, actionName: string): InputAction?
@@ -38,7 +38,7 @@ end
 
    @return RBXScriptSignal? PressedSignal
 ]=]
-function InputController:GetPressedSignal(contextName: string, actionName: string): RBXScriptSignal<nil>?
+function inputController:getPressedSignal(contextName: string, actionName: string): RBXScriptSignal<nil>?
 	local inputAction = getAction(contextName, actionName)
 	assert(inputAction, "InputAction not found.")
 
@@ -53,7 +53,7 @@ end
 
    @return RBXScriptSignal? ReleasedSignal
 ]=]
-function InputController:GetReleasedSignal(contextName: string, actionName: string): RBXScriptSignal?
+function inputController:getReleasedSignal(contextName: string, actionName: string): RBXScriptSignal?
 	local inputAction = getAction(contextName, actionName)
 	assert(inputAction, "InputAction not found.")
 
@@ -67,8 +67,8 @@ end
 
 	@return boolean --> return true if is currently held down.
 ]=]
-function InputController:IsKeyDown(key: keyof<typeof(Enum.KeyCode)>): boolean
+function inputController:isKeyDown(key: keyof<typeof(Enum.KeyCode)>): boolean
 	return UserInputService:IsKeyDown(Enum.KeyCode[key])
 end
 
-return InputController
+return inputController

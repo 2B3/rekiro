@@ -36,7 +36,7 @@ local function createRoot(): Root
 end
 
 --- Public Methods ---
-function UIController:RenderApp()
+function UIController:renderApp()
 	local app = React.createElement(App)
 	local root = createRoot()
 
@@ -44,8 +44,8 @@ function UIController:RenderApp()
 end
 
 --- Main ---
-function UIController:Start()
-	self:RenderApp()
+function UIController:start()
+	self:renderApp()
 end
 
 return UIController

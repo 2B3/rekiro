@@ -42,16 +42,10 @@ local arch = Arch.createMachine(definition :: any, options :: any)
 
 local StateMachine = setmetatable({}, { __index = arch })
 
-function StateMachine:Init()
+function StateMachine:init()
 	arch:Start()
 end
 
--- function StateMachine:Start()
--- 	task.spawn(function()
--- 		while task.wait(1) do
--- 			print(arch)
--- 		end
--- 	end)
--- end --[[ Keep this, if you deleted the StateMachine called Start two times. ]]
+function StateMachine:start() end --[[ Keep this, if you deleted the StateMachine called .start() two times. ]]
 
 return StateMachine

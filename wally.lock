@@ -23,11 +23,6 @@ version = "2.0.0"
 dependencies = [["Promise", "evaera/promise@4.0.0"], ["React", "jsdotlua/react@17.2.1"], ["ReactRoblox", "jsdotlua/react-roblox@17.2.1"], ["TestEZ", "roblox/testez@0.4.1"]]
 
 [[package]]
-name = "crusherfire/module-loader"
-version = "1.0.1"
-dependencies = []
-
-[[package]]
 name = "csqrl/sift"
 version = "0.0.8"
 dependencies = []
@@ -35,7 +30,7 @@ dependencies = []
 [[package]]
 name = "dbergman/rekiro"
 version = "0.1.0"
-dependencies = [["Arch", "bohraz/arch@0.3.8"], ["Dash", "2b3/dash@1.1.0"], ["Iris", "sirmallard/iris@2.5.1"], ["Janitor", "howmanysmall/janitor@1.18.3"], ["Lucide", "latte-soft/lucide-icons@0.1.3"], ["ModuleLoader", "crusherfire/module-loader@1.0.1"], ["Packet", "rajden28/packet@1.7.3"], ["Promise", "evaera/promise@4.0.0"], ["React", "jsdotlua/react@17.2.1"], ["ReactRoblox", "jsdotlua/react-roblox@17.2.1"], ["ReactSpring", "chriscerie/react-spring@2.0.0"], ["Sequent", "sleitnick/sequent@0.1.0"], ["TopbarPlus", "1foreverhd/topbarplus@3.4.0"], ["UILabs", "pepeeltoro41/ui-labs@2.4.2"], ["ProfileStore", "lm-loleris/profilestore@1.0.3"]]
+dependencies = [["Arch", "bohraz/arch@0.3.8"], ["Bootstrapper", "ldgerrits/bootstrapper@1.2.1"], ["Dash", "2b3/dash@1.1.0"], ["Iris", "sirmallard/iris@2.5.1"], ["Janitor", "howmanysmall/janitor@1.18.3"], ["Lucide", "latte-soft/lucide-icons@0.1.3"], ["Packet", "rajden28/packet@1.7.3"], ["Promise", "evaera/promise@4.0.0"], ["React", "jsdotlua/react@17.2.1"], ["ReactRoblox", "jsdotlua/react-roblox@17.2.1"], ["ReactSpring", "chriscerie/react-spring@2.0.0"], ["Sequent", "sleitnick/sequent@0.1.0"], ["TopbarPlus", "1foreverhd/topbarplus@3.4.0"], ["UILabs", "pepeeltoro41/ui-labs@2.4.2"], ["ProfileStore", "lm-loleris/profilestore@1.0.3"]]
 
 [[package]]
 name = "evaera/promise"
@@ -140,6 +135,11 @@ dependencies = [["collections", "jsdotlua/collections@1.2.7"]]
 [[package]]
 name = "latte-soft/lucide-icons"
 version = "0.1.3"
+dependencies = []
+
+[[package]]
+name = "ldgerrits/bootstrapper"
+version = "1.2.1"
 dependencies = []
 
 [[package]]

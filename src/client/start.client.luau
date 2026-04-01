@@ -1,13 +1,20 @@
--- Services --
+--- Services ---
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
--- Requires --
-local ModuleLoader = require(ReplicatedStorage.Packages.ModuleLoader)
+--- Folders ---
+local clientModules = ReplicatedStorage.ModulesClient
+local controllersFolder = clientModules.Controllers
+local systemsFolder = clientModules.Systems
 
--- Main --
-ModuleLoader.ChangeSettings({
-	FOLDER_SEARCH_DEPTH = 3,
-	-- VERBOSE_LOADING = true,
-})
+--- Requires ---
+local Bootstrapper = require(ReplicatedStorage.Packages.Bootstrapper)
 
-ModuleLoader.Start(ReplicatedStorage:WaitForChild("ModulesClient"))
+-- Automatic discovery (A-Z sorted)
+local controllers = Bootstrapper.loadChildren(controllersFolder)
+local systems = Bootstrapper.loadChildren(systemsFolder)
+
+Bootstrapper.run(systems, ".init")
+Bootstrapper.runConcurrent(systems, ".start")
+
+Bootstrapper.run(controllers, ":init")
+Bootstrapper.runAsync(controllers, ":start")

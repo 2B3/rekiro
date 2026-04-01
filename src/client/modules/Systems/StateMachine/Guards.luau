@@ -9,19 +9,19 @@ type Context = typeof(_Context)
 
 --- Definition ---
 function guards.isGrounded(ctx: Context): boolean
-	return ctx.character:IsGrounded()
+	return ctx.character:isGrounded()
 end
 
 function guards.isMoving(ctx: Context): boolean
-	return ctx.character:IsMoving()
+	return ctx.character:isMoving()
 end
 
 function guards.isReady(ctx: Context): boolean
-	return ctx.character:IsReady()
+	return ctx.character:isReady()
 end
 
 function guards.wantsToRun(ctx: Context): boolean
-	return ctx.input:IsKeyDown("LeftShift")
+	return ctx.input:isKeyDown("LeftShift")
 end
 
 function guards.canRun(ctx: Context): boolean

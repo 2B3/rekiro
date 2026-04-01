@@ -3,9 +3,10 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- Folders ---
 local clientModules = ReplicatedStorage.ModulesClient
+local systems = clientModules.Systems
 
 --- Requires ---
-local Types = require(clientModules.StateMachine.Types)
+local Types = require(systems.StateMachine.Types)
 
 --- Variables ---
 local AXES_FORCE = Vector3.zAxis * 4000
@@ -18,7 +19,7 @@ local dashing: Types.StateNode = {
 	janitor = true,
 
 	OnEntry = function(ctx)
-		ctx.animation:PlayAnimation("Movement", "dashing_front")
+		ctx.components.animation:playAnimation("movement", "dashing_front")
 
 		---// Instancializate linearVelocity //--
 		local linearVelocity = Instance.new("LinearVelocity")

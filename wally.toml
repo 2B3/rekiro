@@ -6,10 +6,11 @@ realm = "shared"
 
 [dependencies]
 
-Arch = "bohraz/arch@0.3.8"
-
 # Core
-ModuleLoader = "crusherfire/module-loader@1.0.1"
+Bootstrapper = "ldgerrits/bootstrapper@1.2.1"
+
+# StateMachine
+Arch = "bohraz/arch@0.3.8"
 
 # UI Libraries
 Lucide = "latte-soft/lucide-icons@0.1.3"

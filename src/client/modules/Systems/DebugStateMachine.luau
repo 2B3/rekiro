@@ -1,8 +1,8 @@
-local ENABLED = true
+local ENABLED = false
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local StateMachine = require(ReplicatedStorage.ModulesClient.StateMachine)
+local StateMachine = require(script.Parent.StateMachine)
 local Iris = require(ReplicatedStorage.Packages.Iris)
 
 local module = {}
