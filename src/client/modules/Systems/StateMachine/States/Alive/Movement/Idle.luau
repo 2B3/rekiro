@@ -13,11 +13,17 @@ local idle: Types.StateNode = {
 
 	OnEntry = function(ctx)
 		ctx.components.animation:playAnimation("movement", "idle")
+		ctx.components.character:setJumpHeight(7.2)
 	end,
 
 	OnExit = function(ctx)
 		ctx.components.animation:stopAnimation("movement", "idle")
 	end,
+
+	events = {
+		startWalking = { target = "walking", guards = { "isMoving" } } :: Types.Event,
+		startRunning = { target = "dashing", guards = { "canRun" } } :: Types.Event,
+	},
 }
 
 return idle

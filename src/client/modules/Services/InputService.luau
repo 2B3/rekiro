@@ -9,7 +9,7 @@ local localPlayer = Players.LocalPlayer
 local inputs = localPlayer.PlayerScripts:WaitForChild("Inputs")
 
 --- Variables ---
-local inputController = {}
+local InputService = {}
 
 --- Private Methods ---
 local function getAction(contextName: string, actionName: string): InputAction?
@@ -31,33 +31,21 @@ end
 --- Public Methods ---
 
 --[=[
-   Return Pressed `RBXScriptSignal` from a path.
+	Get the `InputAction` from names.
 
-   @param string contextName --> the `InputContext` parent of the `InputAction` you want.
+	@param string contextName --> the `InputContext` parent of the `InputAction` you want.
    @param string actionName --> the name of the `InputAction` you want.
 
-   @return RBXScriptSignal? PressedSignal
+   @return InputAction? ReleasedSignal
 ]=]
-function inputController:getPressedSignal(contextName: string, actionName: string): RBXScriptSignal<nil>?
+function InputService:getInputAction(contextName: string, actionName: string): InputAction?
 	local inputAction = getAction(contextName, actionName)
-	assert(inputAction, "InputAction not found.")
+	if not inputAction then
+		warn(`InputAction {contextName}/{actionName} doesn't exist.`)
+		return
+	end
 
-	return inputAction.Pressed
-end
-
---[=[
-   Return Released `RBXScriptSignal` from a path.
-
-   @param string contextName --> the `InputContext` parent of the `InputAction` you want.
-   @param string actionName --> the name of the `InputAction` you want.
-
-   @return RBXScriptSignal? ReleasedSignal
-]=]
-function inputController:getReleasedSignal(contextName: string, actionName: string): RBXScriptSignal?
-	local inputAction = getAction(contextName, actionName)
-	assert(inputAction, "InputAction not found.")
-
-	return inputAction.Released
+	return inputAction
 end
 
 --[=[
@@ -67,8 +55,8 @@ end
 
 	@return boolean --> return true if is currently held down.
 ]=]
-function inputController:isKeyDown(key: keyof<typeof(Enum.KeyCode)>): boolean
+function InputService:isKeyDown(key: keyof<typeof(Enum.KeyCode)>): boolean
 	return UserInputService:IsKeyDown(Enum.KeyCode[key])
 end
 
-return inputController
+return InputService

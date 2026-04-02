@@ -2,16 +2,16 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 --- Requires ---
-local characterController = require(ReplicatedStorage.ModulesClient.Controllers.CharacterController)
-local animationController = require(ReplicatedStorage.ModulesClient.Controllers.AnimationController)
-local inputController = require(ReplicatedStorage.ModulesClient.Controllers.InputController)
+local AnimationService = require(ReplicatedStorage.ModulesClient.Services.AnimationService)
+local CharacterService = require(ReplicatedStorage.ModulesClient.Services.CharacterService)
+local InputService = require(ReplicatedStorage.ModulesClient.Services.InputService)
 
 --- Definition ---
 local context = {}
 context.components = {
-	character = characterController,
-	animation = animationController,
-	input = inputController,
+	character = CharacterService,
+	animation = AnimationService,
+	input = InputService,
 }
 
 return context

@@ -11,8 +11,10 @@ local localPlayer = Players.LocalPlayer
 local character: Model = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 
 --- Variables ---
-local AnimationController = {}
-AnimationController.tracks = {} :: { [string]: { [string]: AnimationTrack } }
+local AnimationService = {}
+AnimationService.tracks = {} :: { [string]: { [string]: AnimationTrack } }
+
+local DEFAULT_FADE_TIME = 0.2
 
 --- Private Methods ---
 local function getAnimatorFromCharacter(targetCharacter: Model): Animator
@@ -27,7 +29,7 @@ end
 
 local function onCharacterAdded(newCharacter: Model)
 	for _, animation in animations:QueryDescendants("Animation") do
-		AnimationController:loadAnimation(newCharacter, animation.Parent.Name, animation)
+		AnimationService:loadAnimation(newCharacter, animation.Parent.Name, animation)
 	end
 end
 
@@ -40,8 +42,8 @@ end
    @param string type --> A simple organization method.
    @param Animation animation --> The `Animation` you want to load.
 ]=]
-function AnimationController.loadAnimation(
-	self: typeof(AnimationController),
+function AnimationService.loadAnimation(
+	self: typeof(AnimationService),
 	targetCharacter: Model,
 	type: string,
 	animation: Animation
@@ -57,7 +59,7 @@ function AnimationController.loadAnimation(
 
 	local track: AnimationTrack = animator:LoadAnimation(animation)
 
-	self.tracks[type] = AnimationController.tracks[type] or {}
+	self.tracks[type] = AnimationService.tracks[type] or {}
 	self.tracks[type][animation.Name] = track
 end
 
@@ -72,8 +74,8 @@ end
 
    @return AnimationTrack
 ]=]
-function AnimationController.playAnimation(
-	self: typeof(AnimationController),
+function AnimationService.playAnimation(
+	self: typeof(AnimationService),
 	type: string,
 	animationName: string,
 	fadeTime: number?,
@@ -93,7 +95,7 @@ function AnimationController.playAnimation(
 		end)
 	end
 
-	track:Play(fadeTime)
+	track:Play(fadeTime or DEFAULT_FADE_TIME)
 
 	return track
 end
@@ -103,20 +105,26 @@ end
 
    @param string type --> A simple organization method.
    @param string animationName --> The name of the `AnimationTrack` you want stop.
+	@param number? fadeTime --> time to interpolate the track.
 ]=]
-function AnimationController.stopAnimation(self: typeof(AnimationController), type: string, animationName: string): ()
+function AnimationService.stopAnimation(
+	self: typeof(AnimationService),
+	type: string,
+	animationName: string,
+	fadeTime: number?
+): ()
 	local track: AnimationTrack = self.tracks[type] and self.tracks[type][animationName]
 	if not track then
 		return
 	end
 
-	track:Stop()
+	track:Stop(fadeTime or DEFAULT_FADE_TIME)
 end
 
 --- Main ---
-function AnimationController:start(): ()
+function AnimationService:start(): ()
 	onCharacterAdded(character)
 	localPlayer.CharacterAdded:Connect(onCharacterAdded)
 end
 
-return AnimationController
+return AnimationService
