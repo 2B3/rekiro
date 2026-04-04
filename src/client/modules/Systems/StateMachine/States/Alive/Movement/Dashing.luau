@@ -15,7 +15,7 @@ local DIRECTION = -Vector3.zAxis
 local RELATIVE_FORCE: number = 30000
 local VELOCITY = 28
 
-local DASH_DURATION = 1 / 3
+local DASH_DURATION = 0.4
 
 --- Definition ---
 local dashing: Types.StateNode = {
@@ -49,12 +49,12 @@ local dashing: Types.StateNode = {
 		end))
 
 		--// After dash duration, change to the best state //--
-		task.wait(DASH_DURATION)
-		ctx.Send("stopDashing")
+		ctx.janitor:Add(task.delay(DASH_DURATION, ctx.Send, "stopDashing"))
 	end,
 
 	OnExit = function(ctx)
 		local animation = ctx.components.animation
+
 		animation:stopAnimation("movement", "dashing_front")
 	end,
 

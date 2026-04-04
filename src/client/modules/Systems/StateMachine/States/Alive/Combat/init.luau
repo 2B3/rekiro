@@ -1,5 +1,3 @@
---!strict
-
 --- Services ---
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -10,18 +8,20 @@ local systems = clientModules.Systems
 --- Requires ---
 local Types = require(systems.StateMachine.Types)
 
-local Movement = require(script.Movement)
-local Combat = require(script.Combat)
+local Unsheathed = require(script.Unsheathed)
+local Sheathed = require(script.Sheathed)
+local Attack = require(script.Attack)
 
 --- Definition ---
-local alive: Types.StateNode = {
-	parallel = true, --> Error if states does have more than 1 nodeState
-	initial = "movement",
+local combat: Types.StateNode = {
+	initial = "sheathed",
 
 	states = {
-		movement = Movement,
-		combat = Combat,
+		unsheathed = Unsheathed,
+		sheathed = Sheathed,
+
+		attack = Attack,
 	},
 }
 
-return alive
+return combat

@@ -1,0 +1,31 @@
+{
+   "className": "InputContext",
+   "children": [
+      {
+         "name": "MeleeAction",
+         "className": "InputAction",
+         "children": [
+            {
+               "name": "KeyboardBinding",
+               "className": "InputBinding",
+               "properties": {
+                  "KeyCode": "MouseLeftButton"
+               }
+            }
+         ]
+      },
+      {
+         "name": "UnsheathedAction",
+         "className": "InputAction",
+         "children": [
+            {
+               "name": "KeyboardBinding",
+               "className": "InputBinding",
+               "properties": {
+                  "KeyCode": "F"
+               }
+            }
+         ]
+      }
+   ]
+}

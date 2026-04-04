@@ -9,7 +9,8 @@ realm = "shared"
 # Core
 Bootstrapper = "ldgerrits/bootstrapper@1.2.1"
 
-# StateMachine
+# Gameplay
+WCS = "cheetiedotpy/wcs@2.4.0"
 Arch = "bohraz/arch@0.3.8"
 
 # UI Libraries

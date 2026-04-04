@@ -94,5 +94,5 @@ local function init()
 end
 
 return {
-	Init = init,
+	init = init,
 }

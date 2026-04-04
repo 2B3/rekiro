@@ -1,4 +1,9 @@
+--- Services ---
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
 --- Requires ---
+local Attack = require(ReplicatedStorage.Shared.Combat.Skills.Attack)
+
 local _Context = require(script.Parent.Context)
 
 --- Variables ---
@@ -31,6 +36,15 @@ function guards.canRun(ctx: Context): boolean
 			and guards.isMoving(ctx)
 		then true
 		else false
+end
+
+function guards.canAttack(ctx: Context)
+	if not guards.isReady(ctx) then
+		return
+	end
+
+	local characterWCS = ctx.components.combat:getWCSCharacter()
+	return characterWCS:GetSkillFromConstructor(Attack):ShouldStart()
 end
 
 -- --- Negate guards ---

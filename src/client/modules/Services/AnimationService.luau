@@ -17,7 +17,7 @@ AnimationService.tracks = {} :: { [string]: { [string]: AnimationTrack } }
 local DEFAULT_FADE_TIME = 0.2
 
 --- Private Methods ---
-local function getAnimatorFromCharacter(targetCharacter: Model): Animator
+function getAnimatorFromCharacter(targetCharacter: Model): Animator
 	local animator: Animator? = targetCharacter:FindFirstChild("Animator", true)
 	if not animator then
 		warn("character doesn't have animator.")
@@ -61,6 +61,23 @@ function AnimationService.loadAnimation(
 
 	self.tracks[type] = AnimationService.tracks[type] or {}
 	self.tracks[type][animation.Name] = track
+end
+
+--[=[
+   get `AnimationTrack`.
+
+   @param string type --> A simple organization method.
+   @param string animationName --> The name of the track you want to play.
+
+   @return AnimationTrack
+]=]
+function AnimationService.getTrack(self: typeof(AnimationService), type: string, animationName: string): AnimationTrack
+	local track: AnimationTrack = self.tracks[type] and self.tracks[type][animationName]
+	if not track then
+		return
+	end
+
+	return track
 end
 
 --[=[
