@@ -2,6 +2,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
+local ServerStorage = game:GetService("ServerStorage")
 
 --- Folders ---
 local clientModules = ReplicatedStorage.ModulesClient
@@ -27,6 +28,9 @@ local Events = require(shared.Events)
 
 --// Client //--
 local AnimationService = RunService:IsClient() and require(clientServices.AnimationService)
+
+--// Server //--
+local CombatService = RunService:IsServer() and require(ServerStorage.ModulesServer.Services.CombatService)
 
 --- Variables ---
 local Melee = WCS.RegisterSkill("Melee") :: typeof(WCS.RegisterSkill()) & {
@@ -142,8 +146,9 @@ function Melee.OnStartServer(self: Self)
 	local duration = MeleeSettings.Combos[self.CurrentCombo].Duration
 	self.LastMelee = os.clock()
 
-	--// Error when using wally-packages-fix //--
-	BladeTrail.new():Start(Players:GetPlayers())
+	local sword = CombatService:getSword(self.Character.Instance)
+	BladeTrail.new(sword):Start(Players:GetPlayers())
+
 	AttackEffect.new(self.Character):Start(duration)
 	self:ApplyCooldown(duration)
 
