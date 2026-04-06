@@ -35,7 +35,7 @@ dependencies = []
 [[package]]
 name = "dbergman/rekiro"
 version = "0.1.0"
-dependencies = [["Arch", "bohraz/arch@0.3.8"], ["Bootstrapper", "ldgerrits/bootstrapper@1.2.1"], ["Dash", "2b3/dash@1.1.0"], ["Iris", "sirmallard/iris@2.5.1"], ["Janitor", "howmanysmall/janitor@1.18.3"], ["Lucide", "latte-soft/lucide-icons@0.1.3"], ["Packet", "rajden28/packet@1.7.3"], ["Promise", "evaera/promise@4.0.0"], ["React", "jsdotlua/react@17.2.1"], ["ReactRoblox", "jsdotlua/react-roblox@17.2.1"], ["ReactSpring", "chriscerie/react-spring@2.0.0"], ["Sequent", "sleitnick/sequent@0.1.0"], ["TopbarPlus", "1foreverhd/topbarplus@3.4.0"], ["UILabs", "pepeeltoro41/ui-labs@2.4.2"], ["WCS", "cheetiedotpy/wcs@2.5.0"], ["ProfileStore", "lm-loleris/profilestore@1.0.3"]]
+dependencies = [["Arch", "bohraz/arch@0.3.8"], ["Bootstrapper", "ldgerrits/bootstrapper@1.2.1"], ["Dash", "2b3/dash@1.1.0"], ["Iris", "sirmallard/iris@2.5.1"], ["Janitor", "howmanysmall/janitor@1.18.3"], ["Lucide", "latte-soft/lucide-icons@0.1.3"], ["Packet", "rajden28/packet@1.7.3"], ["Promise", "evaera/promise@4.0.0"], ["React", "jsdotlua/react@17.2.1"], ["ReactRoblox", "jsdotlua/react-roblox@17.2.1"], ["ReactSpring", "chriscerie/react-spring@2.0.0"], ["Refx", "wad4444/refx@0.3.3"], ["Sequent", "sleitnick/sequent@0.1.0"], ["ShapecastHitbox", "teamswordphin/shapecasthitbox@0.2.9"], ["TopbarPlus", "1foreverhd/topbarplus@3.4.0"], ["UILabs", "pepeeltoro41/ui-labs@2.4.2"], ["WCS", "cheetiedotpy/wcs@2.5.0"], ["ProfileStore", "lm-loleris/profilestore@1.0.3"]]
 
 [[package]]
 name = "evaera/promise"
@@ -148,8 +148,18 @@ version = "1.2.1"
 dependencies = []
 
 [[package]]
+name = "littensy/remo"
+version = "1.5.3"
+dependencies = [["Promise", "evaera/promise@4.0.0"]]
+
+[[package]]
 name = "lm-loleris/profilestore"
 version = "1.0.3"
+dependencies = []
+
+[[package]]
+name = "osyrisrblx/t"
+version = "3.1.1"
 dependencies = []
 
 [[package]]
@@ -181,3 +191,13 @@ dependencies = []
 name = "sleitnick/signal"
 version = "2.0.3"
 dependencies = []
+
+[[package]]
+name = "teamswordphin/shapecasthitbox"
+version = "0.2.9"
+dependencies = []
+
+[[package]]
+name = "wad4444/refx"
+version = "0.3.3"
+dependencies = [["remo", "littensy/remo@1.5.3"], ["signal", "sleitnick/signal@2.0.3"], ["t", "osyrisrblx/t@3.1.1"]]

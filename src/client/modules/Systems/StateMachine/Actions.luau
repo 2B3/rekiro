@@ -1,15 +1,14 @@
 --- Services ---
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
---- Folders ---
-local packages = ReplicatedStorage.Packages
-
 --- Requires ---
-local Packet = require(packages.Packet)
+local Events = require(ReplicatedStorage.Shared.Events)
 local _Context = require(script.Parent.Context)
 
+--- Variables ---
+local toggleSheatheEvent = Events.toggleSheathe
+
 local actions = {}
-local toggleSheatheEvent = Packet("ToggleSheathe", Packet.Boolean8)
 
 --- Types ---
 type Context = typeof(_Context)
@@ -31,6 +30,12 @@ function actions.equip(ctx: Context)
 	animation:playAnimation("combat", "unsheathed", 0.075, "sheathe", function()
 		toggleSheatheEvent:Fire(false)
 	end)
+
+	ctx.lastEquip = os.clock()
+end
+
+function actions.startSprintCD(ctx: Context)
+	ctx.lastSprint = os.clock()
 end
 
 return actions

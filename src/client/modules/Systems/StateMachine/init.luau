@@ -23,7 +23,7 @@ local options = {
 
 	maxLogs = 30, -- max logs in the log history, when the max is reached it deletes the oldest log
 	logTime = true, -- determines whether or not to include a time property to each log
-	debugMode = true, -- when set to true, the machine will print basic changes in the machine such as entering and exiting of states
+	debugMode = false, -- when set to true, the machine will print basic changes in the machine such as entering and exiting of states
 }
 
 --- Definition ---

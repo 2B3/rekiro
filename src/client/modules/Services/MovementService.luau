@@ -7,7 +7,7 @@ local MovementService = {}
 MovementService.wantsToRun = false
 
 function MovementService.update(self: typeof(MovementService))
-	local variation = self.wantsToRun and "Running" or "Walking"
+	local variation = self.wantsToRun and "Sprint" or "Walking"
 
 	if CharacterService:isMoving() then
 		StateMachine:Send("start" .. variation)

@@ -60,7 +60,7 @@ local dashing: Types.StateNode = {
 
 	events = {
 		stopDashing = {
-			{ target = "running", guards = { "canRun" } } :: Types.Event,
+			{ target = "running", guards = { "canRunning" } } :: Types.Event,
 			{ target = "walking", guards = { "isMoving" } } :: Types.Event,
 			{ target = "idle" } :: Types.Event,
 		},

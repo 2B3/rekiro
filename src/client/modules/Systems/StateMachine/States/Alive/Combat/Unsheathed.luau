@@ -11,6 +11,7 @@ local Guards = require(systems.StateMachine.Guards)
 
 --- Variables ---
 local TOGGLE_COOLDOWN = 1.5
+local ATTACK_AFTER_EQUIP_COOLDOWN = 0.8
 
 --- Definition ---
 local unsheathed: Types.StateNode = {
@@ -20,7 +21,15 @@ local unsheathed: Types.StateNode = {
 	end,
 
 	events = {
-		startAttack = { target = "attack", guards = { "canAttack" } } :: Types.Event,
+		startAttacking = {
+			target = "attack",
+			guards = {
+				"canAttack",
+				function(ctx)
+					return os.clock() - (ctx.lastEquip or 0) > ATTACK_AFTER_EQUIP_COOLDOWN
+				end,
+			},
+		} :: Types.Event,
 
 		toggleSheathe = {
 			target = "sheathed",
@@ -30,7 +39,7 @@ local unsheathed: Types.StateNode = {
 				end,
 
 				function(ctx)
-					return not Guards.wantsToRun(ctx)
+					return not Guards.wantsSprint(ctx)
 				end,
 			},
 			actions = { "unequip" },

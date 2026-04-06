@@ -20,17 +20,17 @@ end
 
 --- Public Methods ---
 function MovementController.setupInputConnections()
-	local runningAction = InputService:getInputAction("MovementContext", "RunAction")
-	if not runningAction then
+	local sprintAction = InputService:getInputAction("MovementContext", "SprintAction")
+	if not sprintAction then
 		return
 	end
 
-	runningAction.Pressed:Connect(function()
+	sprintAction.Pressed:Connect(function()
 		MovementService.wantsToRun = true
 		MovementService:update()
 	end)
 
-	runningAction.Released:Connect(function()
+	sprintAction.Released:Connect(function()
 		MovementService.wantsToRun = false
 		MovementService:update()
 	end)

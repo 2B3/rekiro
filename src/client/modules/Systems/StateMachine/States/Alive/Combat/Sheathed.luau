@@ -28,7 +28,7 @@ local sheathed: Types.StateNode = {
 				end,
 
 				function(ctx)
-					return not Guards.wantsToRun(ctx)
+					return not Guards.wantsSprint(ctx)
 				end,
 			},
 			actions = { "equip" },

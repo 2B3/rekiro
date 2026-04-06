@@ -2,7 +2,7 @@
    "className": "InputContext",
    "children": [
       {
-         "name": "RunAction",
+         "name": "SprintAction",
          "className": "InputAction",
          "children": [
             {

@@ -13,8 +13,7 @@ local walking: Types.StateNode = {
 
 	OnEntry = function(ctx)
 		ctx.components.animation:playAnimation("movement", "walk_cycle")
-		ctx.components.character:setJumpHeight(7.2)
-		ctx.components.character:setWalkSpeed(10)
+		ctx.network.movementStateChanged:Fire("walking")
 	end,
 
 	OnExit = function(ctx)
@@ -22,8 +21,7 @@ local walking: Types.StateNode = {
 	end,
 
 	events = {
-		startRunning = { target = "dashing", guards = { "canRun" } } :: Types.Event,
-
+		startSprint = { target = "dashing", guards = { "canSprint" }, actions = { "startSprintCD" } } :: Types.Event,
 		stopWalking = { target = "idle" } :: Types.Event,
 	},
 }

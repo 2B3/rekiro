@@ -31,7 +31,7 @@ function CombatController:start()
 	CombatService.client:Start()
 
 	InputService:getInputAction("CombatContext", "MeleeAction").Pressed:Connect(function()
-		StateMachine:Send("startAttack")
+		StateMachine:Send("startAttacking", "Melee")
 	end)
 
 	InputService:getInputAction("CombatContext", "UnsheathedAction").Pressed:Connect(function()

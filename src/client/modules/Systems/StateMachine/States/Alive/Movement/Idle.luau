@@ -13,7 +13,7 @@ local idle: Types.StateNode = {
 
 	OnEntry = function(ctx)
 		ctx.components.animation:playAnimation("movement", "idle")
-		ctx.components.character:setJumpHeight(7.2)
+		ctx.network.movementStateChanged:Fire("idle")
 	end,
 
 	OnExit = function(ctx)
@@ -21,8 +21,8 @@ local idle: Types.StateNode = {
 	end,
 
 	events = {
+		startSprint = { target = "dashing", guards = { "canSprint" }, actions = { "startSprintCD" } } :: Types.Event,
 		startWalking = { target = "walking", guards = { "isMoving" } } :: Types.Event,
-		startRunning = { target = "dashing", guards = { "canRun" } } :: Types.Event,
 	},
 }
 

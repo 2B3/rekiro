@@ -10,7 +10,9 @@ realm = "shared"
 Bootstrapper = "ldgerrits/bootstrapper@1.2.1"
 
 # Gameplay
+ShapecastHitbox = "teamswordphin/shapecasthitbox@0.2.9"
 WCS = "cheetiedotpy/wcs@2.4.0"
+Refx = "wad4444/refx@0.3.2"
 Arch = "bohraz/arch@0.3.8"
 
 # UI Libraries

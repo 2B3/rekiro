@@ -10,7 +10,8 @@ local Types = require(systems.StateMachine.Types)
 
 local Unsheathed = require(script.Unsheathed)
 local Sheathed = require(script.Sheathed)
-local Attack = require(script.Attack)
+
+local Attacking = require(script.Attacking)
 
 --- Definition ---
 local combat: Types.StateNode = {
@@ -20,7 +21,7 @@ local combat: Types.StateNode = {
 		unsheathed = Unsheathed,
 		sheathed = Sheathed,
 
-		attack = Attack,
+		attack = Attacking,
 	},
 }
 

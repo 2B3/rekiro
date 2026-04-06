@@ -19,10 +19,7 @@ type Context = typeof(require(script.Parent.Context)) & {
 export type Action = keyof<Actions> | ((any) -> any)
 export type Guard = keyof<Guards>
 
-export type EventActions = { Action } | Action | string?
-export type EventGuards = { Guard } | Guard | string?
-
-export type Event = { target: string?, guards: EventGuards?, actions: EventActions? }
+export type Event = { target: string?, guards: { Guard }?, actions: { Action }? }
 
 export type StateNode = {
 	initial: string?,
